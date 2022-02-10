@@ -1,6 +1,5 @@
 #include "widget.h"
 #include "ui_widget.h"
-#include "mylist.h"
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
