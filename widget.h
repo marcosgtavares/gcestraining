@@ -21,7 +21,7 @@ private slots:
 
 private:
     Ui::Widget *ui;
-    myList *s = new myList;
+    myList *m_model;
 
 };
 #endif // WIDGET_H

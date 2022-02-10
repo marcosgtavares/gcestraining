@@ -6,7 +6,8 @@ Widget::Widget(QWidget *parent)
     , ui(new Ui::Widget)
 {
     ui->setupUi(this);
-    ui->listView->setModel(s);
+    m_model = new myList;
+    ui->listView->setModel(m_model);
 
 }
 
@@ -18,13 +19,13 @@ Widget::~Widget()
 
 void Widget::on_pushButton_clicked()
 {
-    int row = s->rowCount();
-    s->insertRows(row, 1);
+    int row = m_model->rowCount();
+    m_model->insertRows(row, 1);
 
-    QModelIndex index = s->index(row);
+    QModelIndex index = m_model->index(row);
 
     ui->listView->setCurrentIndex(index);
-    s->list.replace(index.row(), ui->lineEdit->text());
+    m_model->list.replace(index.row(), ui->lineEdit->text());
     ui->lineEdit->clear();
 
 

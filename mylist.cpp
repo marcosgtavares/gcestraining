@@ -17,12 +17,12 @@ int myList::rowCount(const QModelIndex &parent) const
 QVariant myList::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid())
-        return QVariant();
+        return {};
 
     if (index.row() >= list.size())
         return QVariant();
 
-    if (Qt::DisplayRole)
+    if (role == Qt::DisplayRole)
         return list.at(index.row());
 
     // FIXME: Implement me!
