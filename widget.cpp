@@ -1,5 +1,5 @@
 #include "widget.h"
-#include "./ui_widget.h"
+#include "ui_widget.h"
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
@@ -9,6 +9,10 @@ Widget::Widget(QWidget *parent)
     m_model = new myList;
     ui->listView->setModel(m_model);
 
+    myFilter = new QSortFilterProxyModel(this);
+    myFilter->setSourceModel(m_model);
+    myFilter->setFilterCaseSensitivity(Qt::CaseInsensitive);
+    ui->listView->setModel(myFilter);
 }
 
 Widget::~Widget()
@@ -29,5 +33,11 @@ void Widget::on_pushButton_clicked()
     ui->lineEdit->clear();
 
 
+}
+
+
+void Widget::on_lineEdit_textChanged(const QString &arg1)
+{
+    myFilter->setFilterFixedString(arg1);
 }
 

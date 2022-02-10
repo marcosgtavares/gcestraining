@@ -2,7 +2,9 @@
 #define WIDGET_H
 
 #include <QWidget>
-#include "./mylist.h"
+#include "mylist.h"
+#include <QSortFilterProxyModel>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
@@ -19,9 +21,12 @@ public:
 private slots:
     void on_pushButton_clicked();
 
+    void on_lineEdit_textChanged(const QString &arg1);
+
 private:
     Ui::Widget *ui;
     myList *m_model;
+    QSortFilterProxyModel *myFilter;
 
 };
 #endif // WIDGET_H
