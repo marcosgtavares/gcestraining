@@ -25,7 +25,10 @@ public:
 
     Qt::ItemFlags flags(const QModelIndex& index) const override;
     QStringList list;
+
+
 private:
+
 };
 
 #endif // MYLIST_H

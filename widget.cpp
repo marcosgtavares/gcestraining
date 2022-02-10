@@ -1,5 +1,6 @@
 #include "widget.h"
 #include "ui_widget.h"
+#include "mylist.h"
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
@@ -18,6 +19,7 @@ Widget::Widget(QWidget *parent)
 Widget::~Widget()
 {
     delete ui;
+    delete m_model;
 }
 
 
