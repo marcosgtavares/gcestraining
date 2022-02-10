@@ -7,8 +7,6 @@ Widget::Widget(QWidget *parent)
 {
     ui->setupUi(this);
     m_model = new myList;
-    ui->listView->setModel(m_model);
-
     myFilter = new QSortFilterProxyModel(this);
     myFilter->setSourceModel(m_model);
     myFilter->setFilterCaseSensitivity(Qt::CaseInsensitive);
@@ -19,6 +17,7 @@ Widget::~Widget()
 {
     delete ui;
     delete m_model;
+    delete myFilter;
 }
 
 
